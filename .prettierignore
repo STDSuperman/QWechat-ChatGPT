@@ -1,0 +1,11 @@
+tmp
+/test
+/build
+node_modules
+/.vscode
+/.idea
+/.github
+/coverage
+/.yarn
+/dist
+**/*.ts
