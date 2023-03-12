@@ -60,7 +60,8 @@
     "cz-customizable": "^6.3.0",
     "commitizen": "^4.2.4",
     "commitlint-config-cz": "^0.13.2",
-    "husky": "^7.0.2"
+    "husky": "^7.0.2",
+    "lint-staged": "^12.3.7"
   },
   "jest": {
     "moduleFileExtensions": [
