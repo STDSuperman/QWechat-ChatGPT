@@ -1,8 +1,23 @@
 {
   "$schema": "https://json.schemastore.org/nest-cli",
   "collection": "@nestjs/schematics",
-  "sourceRoot": "src",
+  "sourceRoot": "apps/QWechat-ChatGPT/src",
   "compilerOptions": {
-    "deleteOutDir": true
+    "deleteOutDir": true,
+    "webpack": true,
+    "tsConfigPath": "apps/QWechat-ChatGPT/tsconfig.app.json"
+  },
+  "monorepo": true,
+  "root": "apps/QWechat-ChatGPT",
+  "projects": {
+    "QWechat-ChatGPT": {
+      "type": "application",
+      "root": "apps/QWechat-ChatGPT",
+      "entryFile": "main",
+      "sourceRoot": "apps/QWechat-ChatGPT/src",
+      "compilerOptions": {
+        "tsConfigPath": "apps/QWechat-ChatGPT/tsconfig.app.json"
+      }
+    }
   }
 }

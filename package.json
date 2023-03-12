@@ -1,5 +1,5 @@
 {
-  "name": "project-name",
+  "name": "",
   "version": "0.0.1",
   "description": "",
   "author": "",
@@ -8,11 +8,11 @@
   "scripts": {
     "prepare": "husky install",
     "build": "nest build",
-    "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
+    "format": "prettier --write \"apps/**/*.ts\" \"libs/**/*.ts\"",
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/main",
+    "start:prod": "node dist/apps/QWechat-ChatGPT/main",
     "commit": "git add -A && git-cz",
     "lint": "eslint **/*.ts",
     "lint:fix": "eslint --fix **/*.ts",
@@ -21,7 +21,7 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./test/jest-e2e.json",
+    "test:e2e": "jest --config ./apps/QWechat-ChatGPT/test/jest-e2e.json",
     "husky-pre-commit": "husky set .husky/_/pre-commit 'npm run test'",
     "husky-commit-msg": "husky set .husky/_/commit-msg 'npm run commitlint --edit $1'"
   },
@@ -68,7 +68,7 @@
       "json",
       "ts"
     ],
-    "rootDir": "src",
+    "rootDir": ".",
     "testRegex": ".*\\.spec\\.ts$",
     "transform": {
       "^.+\\.(t|j)s$": "ts-jest"
@@ -76,8 +76,11 @@
     "collectCoverageFrom": [
       "**/*.(t|j)s"
     ],
-    "coverageDirectory": "../coverage",
-    "testEnvironment": "node"
+    "coverageDirectory": "./coverage",
+    "testEnvironment": "node",
+    "roots": [
+      "<rootDir>/apps/"
+    ]
   },
   "config": {
     "commitizen": {
