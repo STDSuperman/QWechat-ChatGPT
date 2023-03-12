@@ -3,11 +3,7 @@
   "compilerOptions": {
     "declaration": false,
     "outDir": "../../dist/apps/QWechat-ChatGPT",
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    }
+    "esModuleInterop": true
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules", "dist", "test", "**/*spec.ts"]
