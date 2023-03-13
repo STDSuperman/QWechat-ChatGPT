@@ -13,7 +13,6 @@ export class WechatService implements OnModuleInit {
 
   public onModuleInit() {
     this.init();
-    this.wechatGptMessageService.getGPTMessage('测试');
   }
 
   public async init(): Promise<void> {
