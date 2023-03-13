@@ -1,32 +1,23 @@
 import { Injectable } from '@nestjs/common';
-import * as path from 'path';
 import { userConfig } from '@chat/config';
-import { getEnvConfig } from '@chat-common/utils';
+import { runtimeEnv } from '@chat-common/utils';
+import type { IEnvConfig } from '@chat-types/index'
 
-export interface GlobalConfig {
-	holder?: string;
-}
-
-export interface EnvConfig {
-	holder?: string;
-}
-
+export type GlobalConfig = typeof userConfig & IEnvConfig
 
 @Injectable()
 export class ConfigService {
-	private globalConfig: GlobalConfig & EnvConfig;
-	private envPath: string = path.resolve(process.cwd(), '.env');
+	private globalConfig: GlobalConfig;
 
 	constructor() {
-		const envConfig: EnvConfig = getEnvConfig(this.envPath);
 		this.globalConfig = Object.assign(
 			{},
 			userConfig,
-			envConfig as EnvConfig,
-		) as GlobalConfig & EnvConfig;
+			runtimeEnv,
+		);
 	}
 
-	get<K extends keyof (GlobalConfig & EnvConfig)>(key: K) {
+	get<K extends keyof (GlobalConfig)>(key: K) {
 		return this.globalConfig[key];
 	}
 

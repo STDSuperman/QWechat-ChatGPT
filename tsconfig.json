@@ -19,7 +19,9 @@
     "noFallthroughCasesInSwitch": false,
     "paths": {
       "@chat/*": ["./apps/QWechat-ChatGPT/src/*"],
-      "@chat-common/*": ["./apps/QWechat-ChatGPT/src/common/*"]
+      "@chat-common/*": ["./apps/QWechat-ChatGPT/src/common/*"],
+      "@chat-module/*": ["./apps/QWechat-ChatGPT/src/modules/*"],
+      "@chat-types/*": ["./apps/QWechat-ChatGPT/src/types/*"]
     },
   }
 }

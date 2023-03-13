@@ -9,4 +9,4 @@ import DbModule from '../db/db.module';
 	controllers: [LoggerController],
 	exports: [LoggerService]
 })
-export default class ConfigModule {}
+export default class LoggerModule {}

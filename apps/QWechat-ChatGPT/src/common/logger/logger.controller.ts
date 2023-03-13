@@ -1,9 +1,23 @@
 import { Controller, Get, Query } from '@nestjs/common';
 import { LoggerService } from './logger.service';
-import {
-	IErrorLogResponse,
-	ESortType
-} from './logger.interface';
+import { ESortType } from '@chat-common/utils/constants'
+export interface IErrorLogItem {
+	dateString: string;
+	level: string;
+	message: string;
+	timestamp: number;
+}
+
+export interface IErrorLogResponseData {
+	results: IErrorLogItem[];
+	total: number;
+}
+
+export interface IErrorLogResponse {
+	code: number;
+	data: IErrorLogResponseData;
+}
+
 @Controller('log')
 export class LoggerController {
 	constructor(private loggerService: LoggerService) {}

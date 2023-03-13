@@ -3,7 +3,7 @@ import low from 'lowdb';
 import path from 'path';
 import fs from 'fs';
 import FileSync from 'lowdb/adapters/FileSync';
-import { ESortType } from '../../logger/logger.interface';
+import { ESortType } from '@chat-common/utils/constants'
 interface ErrorItem {
 	lever: 'info' | 'warn' | 'error';
 	message: string;
