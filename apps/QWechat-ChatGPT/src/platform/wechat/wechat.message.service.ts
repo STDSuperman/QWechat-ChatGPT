@@ -102,7 +102,11 @@ export class WeChatGPTMessageService {
     }
     messages.push(message);
     for (const msg of messages) {
-      await talker.say(msg);
+      try {
+        await talker.say(msg);
+      } catch (error) {
+          this.logger.error('try say error: ', error)
+      }
     }
   }
 
