@@ -12,7 +12,7 @@ export class WechatService implements OnModuleInit {
   ) {}
 
   public onModuleInit() {
-    // this.init();
+    this.init();
     this.wechatGptMessageService.getGPTMessage('测试');
   }
 

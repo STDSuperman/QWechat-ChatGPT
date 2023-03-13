@@ -3,6 +3,23 @@ import { ConfigService } from '@chat-common/config/config.service'
 import { LoggerService } from '@chat-common/logger/logger.service'
 import { fetch, ProxyAgent } from 'undici'
 
+
+interface ISteamDataValue {
+  id: string;
+  object: string;
+  created: number;
+  model: string;
+  choices: IChoiceItem[]
+};
+
+interface IChoiceItem {
+  delta: {
+    content: string;
+  }
+  index: number;
+  finish_reason: string;
+}
+
 interface IMessage {
   message: {
     content: string;
@@ -40,7 +57,8 @@ export class ChatGptService {
               "content": message
             }
           ],
-          temperature: 0.6
+          temperature: 0.6,
+          stream: true
         }),
         dispatcher: undefined,
       };
@@ -49,17 +67,36 @@ export class ChatGptService {
         requestOptions.dispatcher = new ProxyAgent(httpsProxy);
       }
 
-      console.log('***8requestOptions', requestOptions)
-
-      const response = await fetch(`https://api.openai.com/v1/chat/completions`, requestOptions);
-      
-      this.logger.debug('response', response);
-      const resJson = await response.json() as IGPTResponseJson;
-      this.logger.debug('resJson', resJson);
-      return resJson?.choices?.[0]?.message?.content;
+      const response = await fetch(`https://api.openai.com/v1/chat/completions`, requestOptions)
+      const fullData = this.readFullResponseData(response.body);
+      return fullData;
     } catch (e) {
       this.logger.error(e)
       return "Something wrong"
     }
+  }
+
+  private async readFullResponseData(response: ReadableStream): Promise<string> {
+    const reader = response.getReader()
+    const decoder = new TextDecoder('utf-8')
+    let done = false
+    let data = '';
+
+    while (!done) {
+      const { value, done: readerDone } = await reader.read()
+      if (value) {
+        try {
+          const chunk =  decoder.decode(value)?.replace(/^\s*data\:\s*/, '');
+          if (chunk?.trim() === '[DONE]') {
+            break;
+          }
+          const json = JSON.parse(chunk?.trim() || '{}') as ISteamDataValue;
+          data += json?.choices?.[0]?.delta?.content || '';
+        } catch (error) {
+        }
+      }
+      done = readerDone
+    }
+    return data;
   }
 }
