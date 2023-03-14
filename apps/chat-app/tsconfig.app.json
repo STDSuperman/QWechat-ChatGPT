@@ -2,7 +2,7 @@
   "extends": "../../tsconfig.json",
   "compilerOptions": {
     "declaration": false,
-    "outDir": "../../dist/apps/QWechat-ChatGPT",
+    "outDir": "../../dist/apps/chat-app",
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true
   },

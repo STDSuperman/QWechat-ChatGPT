@@ -22,6 +22,7 @@ export class WechatService implements OnModuleInit {
     });
     bot
       .on("scan", async (qrcode, status) => {
+        if (status > 2) return;
         const url = `https://wechaty.js.org/qrcode/${encodeURIComponent(qrcode)}`;
         this.logger.info(`Scan QR Code to login: ${status}\n${url}`);
         console.log(

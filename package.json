@@ -12,7 +12,7 @@
     "start": "nest start",
     "start:dev": "nest start --watch",
     "start:debug": "nest start --debug --watch",
-    "start:prod": "node dist/apps/QWechat-ChatGPT/main",
+    "start:prod": "node dist/apps/chat-app/main",
     "commit": "git add -A && git-cz",
     "lint": "eslint **/*.ts",
     "lint:fix": "eslint --fix **/*.ts",
@@ -21,7 +21,7 @@
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
-    "test:e2e": "jest --config ./apps/QWechat-ChatGPT/test/jest-e2e.json",
+    "test:e2e": "jest --config ./apps/chat-app/test/jest-e2e.json",
     "husky-pre-commit": "husky set .husky/_/pre-commit 'npm run test'",
     "husky-commit-msg": "husky set .husky/_/commit-msg 'npm run commitlint --edit $1'"
   },
