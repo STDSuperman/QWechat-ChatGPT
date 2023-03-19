@@ -19,7 +19,7 @@
 pnpm install
 ```
 
-#### 🔊配置环境变量
+#### 配置环境变量
 
 在根目录下新建一个 .env 文件，内容如下：
 ```env
@@ -31,7 +31,7 @@ HTTPS_PROXY=http://127.0.0.1:7890
 - `HTTPS_PROXY`（可选）: 配置代理访问 openAi API 接口。
 
 
-#### 🌱启动项目
+#### 启动项目
 npm run start
 
 #### 登录微信账号
