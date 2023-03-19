@@ -27,9 +27,9 @@ OPENAI_API_KEY=
 HTTPS_PROXY=http://127.0.0.1:7890
 ```
 
-- `OPENAI_API_KEY`(必选): 你的 openAI Api Key。
-- `HTTPS_PROXY`（可选）: 配置代理访问 openAi API 接口。
-- `enableGroupMessage`（可选）: 开启群聊监听，开启后被艾特将调用 OpenAI 接口进行回答。
+- `OPENAI_API_KEY`(必选 - String): 你的 openAI Api Key。
+- `HTTPS_PROXY`（可选 - String）: 配置代理访问 openAi API 接口。
+- `enableGroupMessage`（可选 - Boolean）: 开启群聊监听，开启后被艾特将调用 OpenAI 接口进行回答。
 
 
 #### 启动项目
