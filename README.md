@@ -1,4 +1,8 @@
+<div align="center">
+
 # QWechat-ChatGPT
+
+</div>
 
 旨在支持微信 & QQ 双端统一的 ChatGPT 机器人。
 
