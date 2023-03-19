@@ -2,7 +2,7 @@
 
 # QWechat-ChatGPT
   
-旨在支持微信 & QQ 双端统一的 ChatGPT 机器人。
+旨在支持微信 & QQ 双端统一的 ChatGPT 机器人，基于 NestJs + TypeScript + Wechaty 实现。
 
 </div>
 
