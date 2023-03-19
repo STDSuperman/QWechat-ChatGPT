@@ -8,7 +8,7 @@
 
 ### 🎉 Features
 - [x]  微信私聊
-- [ ]  微信群里艾特支持
+- [x]  微信群里艾特支持
 - [ ]  QQ 支持
 
 > QQ 端开发中...
@@ -29,6 +29,7 @@ HTTPS_PROXY=http://127.0.0.1:7890
 
 - `OPENAI_API_KEY`(必选): 你的 openAI Api Key。
 - `HTTPS_PROXY`（可选）: 配置代理访问 openAi API 接口。
+- `enableGroupMessage`（可选）: 开启群聊监听，开启后被艾特将调用 OpenAI 接口进行回答。
 
 
 #### 启动项目
