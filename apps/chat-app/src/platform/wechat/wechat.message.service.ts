@@ -20,7 +20,7 @@ export class WeChatGPTMessageService {
   ) {
     this.chatPrivateTiggerKeyword = this.configService.get('chatPrivateTiggerKeyword');
     const chatTiggerRule = this.configService.get('chatTiggerRule')
-    this.chatTiggerRule = chatTiggerRule ? new RegExp(chatTiggerRule): undefined
+    this.chatTiggerRule =  new RegExp(chatTiggerRule ?? '')
     this.enableGroupMessage = this.configService.get('enableGroupMessage') || false;
   }
 
