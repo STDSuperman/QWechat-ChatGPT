@@ -34,7 +34,7 @@ export class WeChatGPTMessageService {
     if (this.isNonsense(talker, messageType, rawText)) {
       return;
     }
-    if (this.tiggerGPTMessage(rawText, privateChat)) {
+    if (await this.tiggerGPTMessage(rawText, privateChat)) {
       const text = this.cleanMessage(rawText, privateChat);
       if (privateChat) {
         return await this.onPrivateMessage(talker, text);
@@ -111,7 +111,7 @@ export class WeChatGPTMessageService {
   }
 
   // Check whether the ChatGPT processing can be triggered
-  private tiggerGPTMessage(text: string, privateChat = false): boolean {
+  private async tiggerGPTMessage(text: string, privateChat = false): Promise<boolean> {
     const { chatTiggerRule } = this;
     let triggered = false;
     if (privateChat) {
@@ -119,8 +119,7 @@ export class WeChatGPTMessageService {
       triggered = regEx? regEx.test(text): true;
     } else {
       triggered = this.chatGroupTiggerRegEx.test(text);
-      // group message support `chatTiggerRule`
-      if (triggered && chatTiggerRule) {
+      if (triggered) {
         triggered = chatTiggerRule.test(text.replace(this.chatGroupTiggerRegEx, ""))
       }
     }
