@@ -6,7 +6,7 @@
     "emitDecoratorMetadata": true,
     "experimentalDecorators": true,
     "allowSyntheticDefaultImports": true,
-    "target": "es2017",
+    "target": "es2020",
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./",
@@ -18,7 +18,10 @@
     "forceConsistentCasingInFileNames": false,
     "noFallthroughCasesInSwitch": false,
     "paths": {
-      "@/*": ["./src/*"]
-    }
+      "@chat/*": ["./apps/chat-app/src/*"],
+      "@chat-common/*": ["./apps/chat-app/src/common/*"],
+      "@chat-module/*": ["./apps/chat-app/src/modules/*"],
+      "@chat-types/*": ["./apps/chat-app/src/types/*"]
+    },
   }
 }
