@@ -1,10 +1,10 @@
 <div align="center">
 
 # QWechat-ChatGPT
+  
+旨在支持微信 & QQ 双端统一的 ChatGPT 机器人。
 
 </div>
-
-旨在支持微信 & QQ 双端统一的 ChatGPT 机器人。
 
 ### Features
 - [x]  微信私聊
