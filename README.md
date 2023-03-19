@@ -1,9 +1,9 @@
-<div style="display: flex; justify-algin: center;font-size: 30px;font-weight: bold;">QWechat-ChatGPT</div>
+# QWechat-ChatGPT
 
 旨在支持微信 & QQ 双端统一的 ChatGPT 机器人。
 
 > QQ 端开发中...
-## 快速上手
+### 快速上手
 
 #### 安装依赖
 pnpm install
